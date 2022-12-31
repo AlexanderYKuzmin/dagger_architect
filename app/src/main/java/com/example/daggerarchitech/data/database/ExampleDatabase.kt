@@ -6,10 +6,13 @@ import com.example.daggerarchitech.R
 import javax.inject.Inject
 
 class ExampleDatabase @Inject constructor(
-    private val context: Context
+    private val context: Context,
+    private var time: Long
     ) {
     fun method() {
-        Log.d(LOG_TAG, "ExampleDatabase + ${context.getString(R.string.app_name)}")
+        Log.d(LOG_TAG, "ExampleDatabase_1" + " ${context.getString(R.string.app_name)} time: ${time}")
+        Thread.sleep(10)
+        Log.d(LOG_TAG, "ExampleDatabase_2" + " ${context.getString(R.string.app_name)} time: ${time}")
     }
 
     companion object {

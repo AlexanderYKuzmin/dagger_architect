@@ -3,9 +3,7 @@ package com.example.daggerarchitech.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggerarchitech.R
-import com.example.daggerarchitech.di.ContextModule
 import com.example.daggerarchitech.di.DaggerApplicationComponent
-import com.example.daggerarchitech.di.DataModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     private val component by lazy {
         DaggerApplicationComponent.builder()
-            .contextModule(ContextModule(this))
+            .context(application)
+            .currentTime(System.currentTimeMillis())
             .build()
     }
 
