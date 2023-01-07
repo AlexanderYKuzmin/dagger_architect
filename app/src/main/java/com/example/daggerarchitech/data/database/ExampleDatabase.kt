@@ -3,10 +3,11 @@ package com.example.daggerarchitech.data.database
 import android.content.Context
 import android.util.Log
 import com.example.daggerarchitech.R
+import com.example.daggerarchitech.di.ApplicationScope
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
+@ApplicationScope
 class ExampleDatabase @Inject constructor(
     private val context: Context,
     private var time: Long

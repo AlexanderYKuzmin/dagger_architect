@@ -2,15 +2,15 @@ package com.example.daggerarchitech.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.example.daggerarchitech.domain.ExampleRepository
 import com.example.daggerarchitech.domain.ExampleUseCase
 import javax.inject.Inject
 
-class ExampleViewModel @Inject constructor(
-    private val useCase: ExampleUseCase
+class ExampleViewModel2 @Inject constructor(
+    private val repository: ExampleRepository
 ) : ViewModel() {
 
     fun method() {
-        useCase()
-        Log.d("ExampleViewModel", "$this")
+        Log.d("ExampleViewModel2", "$this")
     }
 }

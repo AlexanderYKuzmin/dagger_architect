@@ -1,8 +1,11 @@
 package com.example.daggerarchitech.data.network
 
 import android.util.Log
+import com.example.daggerarchitech.di.ApplicationScope
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@ApplicationScope
 class ExampleApiService @Inject constructor(
     private var time: Long
 ){
