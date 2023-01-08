@@ -1,10 +1,7 @@
 package com.example.daggerarchitech.di
 
 import android.content.Context
-import com.example.daggerarchitech.data.datasource.ExampleLocalDataSource
-import com.example.daggerarchitech.data.datasource.ExampleLocalDataSourceImpl
-import com.example.daggerarchitech.data.datasource.ExampleRemoteDataSource
-import com.example.daggerarchitech.data.datasource.ExampleRemoteDataSourceImpl
+import com.example.daggerarchitech.data.datasource.*
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -13,11 +10,19 @@ import dagger.Provides
 @Module
 interface DataModule {
 
+    @ApplicationScope
     @Binds
     fun bindExampleLocalDataSource(exampleLocalDataSourceImpl: ExampleLocalDataSourceImpl): ExampleLocalDataSource
 
+    @ProdQualifier
+    @ApplicationScope
     @Binds
     fun bindExampleRemoteDataSource(exampleRemoteDataSourceImpl: ExampleRemoteDataSourceImpl): ExampleRemoteDataSource
+
+    @TestQualifier
+    @ApplicationScope
+    @Binds
+    fun bindTestRemoteDataSource(testRemoteDataSourceImpl: TestRemoteDataSourceImpl): ExampleRemoteDataSource
 }
 
 /*

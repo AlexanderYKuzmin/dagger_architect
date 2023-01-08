@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.daggerarchitech.ExampleApp
 import com.example.daggerarchitech.R
+import com.example.daggerarchitech.data.network.ExampleApiService
 import com.example.daggerarchitech.di.DaggerApplicationComponent
 import dagger.Component
 import javax.inject.Inject
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+
+    @Inject
+    lateinit var apiService: ExampleApiService
 
     private val viewModel: ExampleViewModel by lazy {
         ViewModelProvider(this, viewModelFactory)[ExampleViewModel::class.java]
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
     private val component  by lazy {
         (application as ExampleApp).component
+            .activityComponentFactory()
+            .create("MY_ID", "NAME")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +47,11 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.method()
         viewModel2.method()
+
+        apiService.method()
+
+
+
 
 
     }

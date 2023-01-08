@@ -26,7 +26,7 @@ import javax.inject.Provider
         return viewModels[modelClass.simpleName] as T
     }
 }*/
-
+//@ApplicationScope - убрали, чтобы view model factory создавал модели во время создания активити
 class ViewModelFactory @Inject constructor(
     //private val viewModelsProviders: @JvmSuppressWildcards Map<String, Provider<ViewModel>>
     private val viewModelsProviders: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>> //В качестве ключа
